@@ -1,0 +1,15 @@
+- name: Install Docker Compose
+  command: >
+    curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  args:
+    creates: /usr/local/bin/docker-compose
+    #executable: /bin/bash
+  register: compose_download
+
+- name: Set executable permissions for Docker Compose
+  file:
+    path: /usr/local/bin/docker-compose
+    mode: 'u+x,g+x'
+#  when: compose_download|changed
+
+

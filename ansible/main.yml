@@ -1,0 +1,9 @@
+---
+- name: Install essntials on machine
+  hosts: ansibleTaskServer 
+  remote_user: $machine's user
+  roles: 
+    - Docker
+    - DockerCompose
+    - Git
+    - nginx
